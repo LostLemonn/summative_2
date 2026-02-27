@@ -24,6 +24,7 @@ Through **Figure 1** we can see the very early wireframe during the design stage
 ### Functional & Non-Functional Requirements
 
 #### Functional Requirements
+The following table conveys my functional requirements. These are requirements that shape the basis of the program - if any of these are not met, then the application has not been created successfully.
 
 | ID  | Requirement |
 |-----|-------------|
@@ -34,6 +35,7 @@ Through **Figure 1** we can see the very early wireframe during the design stage
 | FR5 | The application must display 5 Multiple Choice Questions. |
 
 #### Non-Functional Requirements
+The following table conveys my non-functional requirements. These are elements that aren't integral to the running of the program, but provide a level of accessibility and convenience - if any of these are not met, then there is room for improvement within the application.
 
 | ID  | Requirement |
 |-----|-------------|
@@ -53,6 +55,10 @@ Through **Figure 1** we can see the very early wireframe during the design stage
 
 ### Code Design
 ![Figure 2: Class Diagram](docs_assets/class_diagram.png)
+
+**Figure 2:** Class Diagram
+
+**Figure 2** illustrates the class diagram design that formed the structure of my app. QuizzApp is the child class, inheriting from tk.Tk which is the parent class from Tkinter already built in. The benefit of this is QuizzApp is able to get its functionality through the inheritance rather than having to rewrite it, such as mainloop() for example which keeps the window open, and destroy() which closes it. The hollow triangle pointing to the parent class is how we can interpret from the diagram that this is an inheritance relationship. You will also notice that QuizzApp lists its own attributes to keep track of state, such as the list of questions and participant names, along with the 6 methods that handle everything from building the quiz screen to validating the name and saving results. These are methods we brought in ourself as Tkinter does not provide these functions - essentailly, tk.Tk gives us a blank canvas(window) and we build everything on top of that.
 
 ## Development
 
