@@ -1,7 +1,17 @@
 # Hitachi Rail Safety Quiz 🚄
 
-Table of contents
-[ documentation](#documentation)
+## Table of Contents
+[Introduction](#introduction)
+
+[Design](#design)
+
+[Development](#development)
+
+[Testing](#testing)
+
+[Documentation](#documentation)
+
+[Evaluation](#evaluation)
 
 ## Introduction
 As a business operating on *critical national infrastructure*, safety is at the forefront of our principles. Hence, I have designed and developed a brief safety related quiz that serves as a **MVP**, and would hopefully help in increasing awareness of safety practices and knowledge overall within the organisation. Essentially, it's been created with the mindset that anyone should be able to go through it, whether that be using it as a tool for induction of new employees, or perhaps as a refresher for existing staff, or perhaps even just as a baseline resource for managers to review their team. Currently, there is no standardised way to check whether staff have a working knowledge of key safety topics - this application exists to bridge that gap.
