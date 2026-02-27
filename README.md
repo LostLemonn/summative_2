@@ -1,5 +1,8 @@
 # Hitachi Rail Safety Quiz 🚄
 
+Table of contents
+[ documentation](#documentation)
+
 ## Introduction
 As a business operating on *critical national infrastructure*, safety is at the forefront of our principles. Hence, I have designed and developed a brief safety related quiz that serves as a **MVP**, and would hopefully help in increasing awareness of safety practices and knowledge overall within the organisation. Essentially, it's been created with the mindset that anyone should be able to go through it, whether that be using it as a tool for induction of new employees, or perhaps as a refresher for existing staff, or perhaps even just as a baseline resource for managers to review their team. Currently, there is no standardised way to check whether staff have a working knowledge of key safety topics - this application exists to bridge that gap.
 
@@ -138,8 +141,57 @@ As seen above, all tests have passed.
 ## Documentation
 
 ### User
+This guide is intended for users and explains how to use and navigate the quiz. Thankfully, little technical knowledge is required so it is accessible to most :)
+
+#### Some prerequisites...
+Before we can use the app, please make sure that your machine has [Python 3](https://docs.python.org/3/) installed (ensure it is Python **3**). If it isn't installed, you can download it through the [website](https://docs.python.org/3/) or ask the IT Department. Besides from this, all other files will be provided over email (or they can be taken from this repo).
+
+#### Getting Started
+Now that Python is installed and you have the quiz files, make sure that they're all saved together in the same folder. Open the terminal and navigate to this folder, then run:
+
+```python main.py```
+
+This will open the quiz window. Great job so far, that deals with the hard bit!
+
+#### The Quiz
+1. Enter your full name in the text box at the top of the screen
+2. You will be presented with 5 MCQ's, read through them and select one answer each using the radio buttons
+3. Click the bright red submit button once you're done!
+4. Your response has been recorded, you may press the QUIT button to exit the application.
+
+#### *Running into some issues?*
+If you are being presented with error messages on submission attempt, please read through it as it should help you figure out what's wrong. Usually, it will be related to the name input field, please make sure you haven't left it blank or added special characters accidentally. Rectifying this and pressing submit again should solve your problem :)
 
 ### Technical
+This guide is intended for developers who would like to understand the code, make changes to it, or run tests locally.
+
+#### Code Overview
+
+| File  | Purpose |
+|-----|-------------|
+| main.py | GUI, Application logic, recording & writing to CSV |
+| quiz_data.py | Loading questions from CSV |
+| quiz_utils.py | Validation (pure functions) |
+| quiz_test.py | Automated unittest |
+
+| File  | Purpose |
+|-----|-------------|
+| questions.csv | stores questions and answer options |
+| user_records.csv | stores participant names, timestamps, and submitted answers |
+
+Ensure [Python 3](https://docs.python.org/3/) is installed. **No external libraries are required** - all libraries used (tkinter, csv, re, datetime, unittest, os) are part of the Python standard library. 
+
+All questions are derived from questions.csv , which can be edited to add/remove/adjust questions and answers, be sure to follow the same format written on line 1 otherwise the code will break.
+
+#### Running Tests
+quiz_test.py contains pure testing functions, increasing modularity. All unit tests are in quiz_test.py . To run these tests locally, open the terminal and navigate to the project folder using ```cd``` and run:
+
+```python -m unittest quiz_test.py -v```
+
+Adding the ```-v``` flag will allow you to view individual tests, to see which ones are specifically being tested and passing/failing.
+
+#### Submitted Records
+All successful submissions are saved to user_records.csv . If this csv does not exist and a submission is made, it will be generated automatically. Additonally, this csv uses append mode, so a new submission will not overwrite any previous data, but rather be added as a separate entry, allowing us to keep a record of the data. Within the square brackets, a 0 indicates that the participant entered the incorrect answer, whereas a 1 indicates the correct answer. Another benefit of both this and the questions.csv file is they can be opened with other standard software e.g. Excel, which actually helps to meet my fifth non-functional requirement.
 
 
 
