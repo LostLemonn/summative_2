@@ -107,8 +107,31 @@ You'll notice that validation has been split into two layers - the pure function
 As my first functional requirement, responses should be saved to a CSV file. My application saves participant names, answers, and timestamps as a response into user_records.csv. This is done in append mode, to make sure that each submission does not overwrite the previous, but rather adds a new row, so we can save each user submission. The reason I've gone with CSV over a database is because it requires minimal setup and works well in the context of a MVP. CSV is also compatible with Excel, so anyone can open it directly via Excel. If we were to expand the application, a database would probably be a more suitable method of data storage.
 
 ## Testing
+For testing, I've incorporated both manual testing and automated unit testing, which we will go through in this section. 
+
+Manual testing consisted of putting myself in the shoes of the user and going through the app myself, checking that each part of the journey the user takes functions as intended e.g. input validation on name entry. This was also stressed in my early Figma prototype as a feature (see Figure 1).
+
+Automated unit testing was done using [unittest](https://docs.python.org/3/library/unittest.html), a python framework which allowed me to test the validation functions in quiz_utils.py in isolation. These functions were written purposely to be pure because I knew it would make it more straightforward to test and hence increase efficiency and ensuring reliable and predictable results.
+
+The benefit of using both these methods of testing was that I could test the logic of the app automatically whilst being able to check the user experience manually, which is actually important to consider as an autoamted test may not always pick up on something that a human may find inconvenient or incorrect.
+
+Below, we can see a showcase of my testing:
+
+### Manual
+| ID  | Test | Pass/Fail | Evidence |
+|-----|-------------|-----|---------|
+| T1 | Submit with empty name field | Pass | ![test1](docs_assets/test1.png) displays correct error |
+| T2 | Enter 123456 in name field and submit | Pass | ![test2](docs_assets/test2.png) displays correct error |
+| T3 | Ensure all questions are visible on screen | Pass | ![test3](docs_assets/test3.png) all questions on screen |
+| T4 | Ensure app closes when clicking quit button | Pass | ![test4](docs_assets/test4and5.png) The app closes after clicking the QUIT button |
+| T5 | Enter valid name and answers and submit to see if app works as intended | Pass | ![test5](docs_assets/test4and5.png) Valid name was entered and answers submitted, led to success screen |
+
+### Automated
 ![Figure 4: Unittest](docs_assets/unittest.png)
 
+**Figure 4:** Unittest
+
+As seen above, all tests have passed.
 
 
 
